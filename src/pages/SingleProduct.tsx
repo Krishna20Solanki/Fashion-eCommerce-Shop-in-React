@@ -162,18 +162,18 @@ const SingleProduct = () => {
           Similar Products
         </h2>
         <div className="flex flex-wrap justify-between items-center gap-y-8 mt-12 max-xl:justify-start max-xl:gap-5 ">
-          {products.slice(0, 3).map((product: Product) => (
-            <ProductItem
-              key={product?.id}
-              id={product?.id}
-              image={product?.image}
-              title={product?.title}
-              category={product?.category}
-              price={product?.price}
-              popularity={product?.popularity}
-              stock={product?.stock}
-            />
-          ))}
+          {products.slice(0, 3).map((product) =>
+            product?.id ? (
+              <ProductItem
+                key={product.id}
+                id={product.id}
+                image={product.image}
+                title={product.title}
+                category={product.category}
+                price={product.price}
+              />
+            ) : null
+          )}
         </div>
       </div>
     </div>
