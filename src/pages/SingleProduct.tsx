@@ -58,8 +58,7 @@ const SingleProduct = () => {
           quantity,
           size,
           color,
-          popularity: singleProduct.popularity,
-          stock: singleProduct.stock,
+          
         })
       );
       toast.success("Product added to the cart");
