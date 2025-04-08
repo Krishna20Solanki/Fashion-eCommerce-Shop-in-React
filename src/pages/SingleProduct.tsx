@@ -58,7 +58,8 @@ const SingleProduct = () => {
           quantity,
           size,
           color,
-          
+          popularity: singleProduct.popularity,
+          stock: singleProduct.stock,
         })
       );
       toast.success("Product added to the cart");
@@ -116,8 +117,10 @@ const SingleProduct = () => {
 
             <QuantityInputUpgrade
               value={quantity}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setQuantity(() => parseInt(e.target.value))
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>{
+                const value = parseInt(e.target.value);
+                setQuantity(isNaN(value) ? 1 : value);
+              }
               }
             />
           </div>
