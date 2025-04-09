@@ -21,7 +21,7 @@ const SingleProduct = () => {
   const [size, setSize] = useState<string>("xs");
   const [color, setColor] = useState<string>("black");
   const [quantity, setQuantity] = useState<number>(1);
-  const params = useParams<{ id: string }>();
+  const id = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
 
   // defining HOC instances
@@ -32,9 +32,7 @@ const SingleProduct = () => {
     const fetchSingleProduct = async () => {
       const response = await fetch(
 
-        `https://fashion-ecommerce-shop-in-react.onrender.com/${params.id}`
-
-        `https://fashion-ecommerce-shop-in-react.onrender.com/products/${params.id}`
+        `https://fashion-ecommerce-shop-in-react.onrender.com/products/${id}`
 
       );
       const data = await response.json();
@@ -48,7 +46,7 @@ const SingleProduct = () => {
     };
     fetchSingleProduct();
     fetchProducts();
-  }, [params.id]);
+  }, [id.id]);
 
   const handleAddToCart = () => {
     if (singleProduct) {
@@ -100,9 +98,8 @@ const SingleProduct = () => {
                 { id: "2xl", value: "2XL" },
               ]}
               value={size}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setSize(() => e.target.value)
-              }
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSize(e.target.value)}
+
             />
             <SelectInputUpgrade
               selectList={[
@@ -114,24 +111,18 @@ const SingleProduct = () => {
                 { id: "green", value: "GREEN" },
               ]}
               value={color}
-              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-                setColor(() => e.target.value)
-              }
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setColor(e.target.value)}
             />
 
             <QuantityInputUpgrade
               value={quantity}
 
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>{
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 const value = parseInt(e.target.value);
                 setQuantity(isNaN(value) ? 1 : value);
               }
               }
 
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                const value = parseInt(e.target.value);
-                setQuantity(isNaN(value) ? 1 : value);
-              }}
 
             />
           </div>
