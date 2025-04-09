@@ -25,7 +25,7 @@ const ProductItem = ({
         to={`/product/${id}`}
         className="w-full h-[300px] max-md:h-[200px] overflow-hidden"
       >
-        <img src={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${image}`} alt={title} />
+        <img src={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${encodeURIComponent(image)}`} alt={title} />
       </Link>
       <Link
         to={`/product/${id}`}

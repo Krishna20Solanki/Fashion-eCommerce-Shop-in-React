@@ -73,7 +73,7 @@ const SingleProduct = () => {
       <div className="grid grid-cols-3 gap-x-8 max-lg:grid-cols-1">
         <div className="lg:col-span-2">
           <img
-            src={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${singleProduct?.image}`}
+            src={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${encodeURIComponent(singleProduct?.image || "")}`}
             alt={singleProduct?.title}
           />
         </div>
