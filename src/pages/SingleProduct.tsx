@@ -21,7 +21,7 @@ const SingleProduct = () => {
   const [size, setSize] = useState<string>("xs");
   const [color, setColor] = useState<string>("black");
   const [quantity, setQuantity] = useState<number>(1);
-  const id = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
   const dispatch = useAppDispatch();
 
   // defining HOC instances
@@ -32,7 +32,7 @@ const SingleProduct = () => {
     const fetchSingleProduct = async () => {
       const response = await fetch(
 
-        `https://fashion-ecommerce-shop-in-react.onrender.com/products/${id}`
+        `https://fashion-ecommerce-shop-in-react.onrender.com/products/${params.id}`
 
       );
       const data = await response.json();
@@ -46,14 +46,14 @@ const SingleProduct = () => {
     };
     fetchSingleProduct();
     fetchProducts();
-  }, [id.id]);
+  }, [params.id]);
 
   const handleAddToCart = () => {
     if (singleProduct) {
       dispatch(
         addProductToTheCart({
           id: singleProduct.id + size + color,
-          image: singleProduct.image,
+          image: `https://fashion-ecommerce-shop-in-react.onrender.com/assets/${singleProduct.image}`,
           title: singleProduct.title,
           category: singleProduct.category,
           price: singleProduct.price,
