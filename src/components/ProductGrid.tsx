@@ -13,7 +13,7 @@ const ProductGrid = ({ products }: { products?: Product[] }) => {
           <ProductItem
             key={nanoid()}
             id={product.id}
-            image={product.image}
+            image={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${product?.image}`}
             title={product.title}
             category={product.category}
             price={product.price}
