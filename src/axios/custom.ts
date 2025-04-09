@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const customFetch = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "https://fashion-ecommerce-shop-in-react.onrender.com",
     headers: {
         Accept: "application/json"
     }
