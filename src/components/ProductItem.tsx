@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 import { formatCategoryName } from "../utils/formatCategoryName";
 
+
+
+
 const ProductItem = ({
   id,
   image,
   title,
   category,
   price,
+  
 }: {
   id: string;
   image: string;
   title: string;
   category: string;
   price: number;
+
 }) => {
   return (
     <div className="w-[400px] flex flex-col gap-2 justify-center max-md:w-[300px]">
@@ -20,7 +25,7 @@ const ProductItem = ({
         to={`/product/${id}`}
         className="w-full h-[300px] max-md:h-[200px] overflow-hidden"
       >
-        <img src={`/src/assets/${image}`} alt={title} />
+        <img src={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${image}`} alt={title} />
       </Link>
       <Link
         to={`/product/${id}`}

@@ -31,7 +31,11 @@ const SingleProduct = () => {
   useEffect(() => {
     const fetchSingleProduct = async () => {
       const response = await fetch(
+
         `https://fashion-ecommerce-shop-in-react.onrender.com/${params.id}`
+
+        `https://fashion-ecommerce-shop-in-react.onrender.com/products/${params.id}`
+
       );
       const data = await response.json();
       setSingleProduct(data);
@@ -71,7 +75,7 @@ const SingleProduct = () => {
       <div className="grid grid-cols-3 gap-x-8 max-lg:grid-cols-1">
         <div className="lg:col-span-2">
           <img
-            src={`/src/assets/${singleProduct?.image}`}
+            src={`https://fashion-ecommerce-shop-in-react.onrender.com/assets/${singleProduct?.image}`}
             alt={singleProduct?.title}
           />
         </div>
@@ -82,7 +86,7 @@ const SingleProduct = () => {
               <p className="text-base text-secondaryBrown">
                 {formatCategoryName(singleProduct?.category || "")}
               </p>
-              <p className="text-base font-bold">${ singleProduct?.price }</p>
+              <p className="text-base font-bold">${singleProduct?.price}</p>
             </div>
           </div>
           <div className="flex flex-col gap-2">
@@ -117,11 +121,18 @@ const SingleProduct = () => {
 
             <QuantityInputUpgrade
               value={quantity}
+
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>{
                 const value = parseInt(e.target.value);
                 setQuantity(isNaN(value) ? 1 : value);
               }
               }
+
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                const value = parseInt(e.target.value);
+                setQuantity(isNaN(value) ? 1 : value);
+              }}
+
             />
           </div>
           <div className="flex flex-col gap-3">
